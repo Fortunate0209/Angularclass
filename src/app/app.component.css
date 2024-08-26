@@ -1,0 +1,22 @@
+
+
+#available{
+    background-color: green;
+    color: white;
+}
+
+#notAvailable{
+    background-color: yellow;
+    color: black;
+}
+
+
+.available{
+    background-color:red;
+    color: black;
+}
+
+.unavailable{
+    background-color: blue;
+    color: black;
+}

@@ -1,0 +1,59 @@
+
+
+<div class="container-fluid">
+
+    <div class="col-6 mx-auto my-5">
+        <h4 class="text-info text-center">Contact App</h4>
+        <input type="text" placeholder="Name" class="form-control my-2" [(ngModel)]="name">
+        <input type="text" placeholder="Phonenumber" class="form-control my-2" [(ngModel)]="phonenumber">
+        <input type="text" placeholder="Email" class="form-control my-2" [(ngModel)]="email">
+        <input type="text" placeholder="Address" class="form-control my-2" [(ngModel)]="address">
+        <button class="btn btn-success" (click)="createcontact()">Create Contact</button>
+    </div>
+
+    <div >
+      <ul class="row mx-auto">
+        <h2>Contact List</h2>
+        <li *ngFor="let contact of contactarray, let i = index" class="mx-auto card col-4 mt-5 mt-3 shadow p-2" style="width: 280px;" >
+            <p>{{i+1}}</p>
+            <p><strong>Name:</strong> {{ contact.name }}</p>
+            <p><strong>Phone Number:</strong> {{ contact.pnumber }}</p>
+            <p><strong>Email:</strong> {{ contact.email }}</p>
+            <p><strong>Address:</strong> {{ contact.address }}</p>
+            <div class="my-2 gap-2 d-flex">
+              <button class="bg-success text-white" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="edit(i)">Edit</button>
+            <button class="bg-danger text-white" (click)="delete(i)">Delete</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button> -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">New Conatct</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+        <input type="text" placeholder="Name" class="form-control my-2" [(ngModel)]="newName">
+        <input type="text" placeholder="Phonenumber" class="form-control my-2" [(ngModel)]="newPhonenumber">
+        <input type="text" placeholder="Email" class="form-control my-2" [(ngModel)]="newEmail">
+        <input type="text" placeholder="Address" class="form-control my-2" [(ngModel)]="newAddress">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
+        <button type="button" class="btn btn-primary" (click)="updateChanges()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

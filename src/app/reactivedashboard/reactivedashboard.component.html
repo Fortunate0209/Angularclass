@@ -1,0 +1,20 @@
+
+
+<div class="navbar">
+    <div class="container-fluid">
+        <div class="border border-red">
+            <a routerLink="/home">Home</a>
+            <a routerLink="/">About</a>
+            <a routerLink="/">Pricing</a>
+        </div>
+        <div>
+            <button (click)="logout()" class="bg-secondary text-info">Logout</button>
+        </div>
+    </div>
+</div>
+
+
+<div>
+    <h2>welcome: {{userData?.firstname}}</h2>
+    <h2>welcome: {{userData?.username}}</h2>
+</div>

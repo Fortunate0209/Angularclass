@@ -1,0 +1,17 @@
+
+<div class="col-8 mx-auto shadow">
+    <div class="col-6 mx-autop-2">
+        <h2>Sign in</h2>
+        <form action="" [formGroup]="signinform" >
+            <!-- <input type="text" placeholder="Email" name="email" formControlName="email" class="form-control my-2"> -->
+            
+            <input type="text" placeholder="Username" name="password" formControlName="username" class="form-control my-2" [class.is-valid]="signinform.get ('username')?.valid" [class.is-invalid]="signinform.get('username')?.invalid && signinform.get('username')?.touched">
+            <div *ngIf="signinform.get('username')?.invalid && signinform.get('username')?.dirty">
+                <span class="text-danger" *ngIf="signinform.get('username')?.errors?.['required']">Lastname is required</span>
+            </div>
+
+            <input type="text" placeholder="Password" name="password" formControlName="password" class="form-control my-2">
+            <button class="btn btn-primary" (click)="signIn()">Sign in</button>
+        </form>
+    </div>
+</div>

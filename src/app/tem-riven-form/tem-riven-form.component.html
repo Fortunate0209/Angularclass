@@ -1,0 +1,67 @@
+<!-- <p>tem-riven-form works!</p> -->
+
+<div class="container-fluid">
+    <div class="col-8 mx-auto shadow p-3">
+        <div class="col-10 mx-auto">
+            <h1 class="text-center text-primary">Template Driven Form</h1>
+
+            <form action="" #myForm="ngForm">
+                <input class="form-control my-2" type="text" name="firstname" placeholder="Firstname" [(ngModel)]="fname" #firstname="ngModel" [class.is-valid]="firstname.valid && firstname.dirty" minlength="5" [class.is-invalid]="firstname.invalid">
+                <div *ngIf="firstname.invalid && firstname.dirty">
+                    <span *ngIf="firstname.errors?.['minlength']" class="bg-danger text-white p-2 rounded">The minimun lenght required is 5</span>
+                    
+                </div>
+
+                <div *ngIf="lastname.invalid && lastname.touched">
+                    <span class="text-danger" *ngIf="lastname.errors?.['required']">This field is required</span>
+                </div>
+                <input class="form-control my-2 shadow-none" type="text" name="lname" placeholder="Lastname" [(ngModel)]="lname" #lastname="ngModel" [class.is-valid]="lastname.valid && lastname.touched" required>
+
+
+                <div>
+                    <input class="form-control my-2 shadow-none"
+                    placeholder="Email"
+                      type="email"
+                      name="email"
+                      ngModel
+                      required
+                      email
+                      #email="ngModel"
+                    />
+                    <div *ngIf="email.invalid && (email.dirty || email.touched)">
+                      <div *ngIf="email.errors?.['required']" class="text-danger">Email is required.</div>
+                      <div *ngIf="email.errors?.['email']" class="text-danger">Invalid email address.</div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <!-- <label for="password">Password:</label> -->
+                    <input class="form-control shadow-none my-2 "
+                      type="type"
+                      placeholder="Password"
+                      name="password"
+                      ngModel
+                      required
+                      minlength="8"
+                      #password="ngModel"
+                    />
+                    <div *ngIf="password.invalid && (password.dirty || password.touched)">
+                      <div *ngIf="password.errors?.['required']" class="text-danger">Password is required.</div>
+                      <div *ngIf="password.errors?.['minlength']" class="text-danger">
+                        Password must be at least 8 characters long.
+                      </div>
+                      <div *ngIf="password.hasError?.('passwordStrength')">
+                        Password must include at least one uppercase letter, one lowercase letter,
+                        and one number.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="text-center d-flex gap-3 justify-content-center">
+                    <input type="checkbox" name="terms" [(ngModel)]="terms">
+                  <button class="w-100" [disabled] ="myForm.invalid || !terms==false">Submit</button>
+                  </div>
+            </form>
+        </div>
+    </div>
+</div>

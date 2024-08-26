@@ -1,0 +1,18 @@
+<div class="container-fluid shadow">
+    <div class="col-8 mx-auto shadow p-2 my-5">
+        <h4 class="text-center text-info">Parent component</h4>
+        <div>
+            <input type="text" [(ngModel)]="msg" class="form-control my-2">
+            <button class="btn btn-outline-info" (click)="sendmsg()">Send msg to child</button>
+        </div>
+        <div>
+            <p class="text-primary ms-5 mt-3">Msg from child: {{childmsg}}</p>
+        </div>
+
+        <hr>
+    <div>
+        <app-eventemitterone [msgfromparent]="msgToChild" (eventemit)="receivemsg($event)"></app-eventemitterone>
+    </div>
+    </div>
+    
+</div>

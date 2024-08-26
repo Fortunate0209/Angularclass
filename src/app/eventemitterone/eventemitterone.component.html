@@ -1,0 +1,6 @@
+<div>
+    <h4 class="text-primary text-center">This is the child component</h4>
+    <p class="text-success">Msg from parent:{{msgfromparent}}</p>
+    <input type="text" [(ngModel)]="msgtoparent" class="form-control my-2">
+    <button class="btn btn-outline-info" (click)="sendmsg()">Send msg to parent</button>
+</div>

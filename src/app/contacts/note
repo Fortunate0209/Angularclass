@@ -1,0 +1,7 @@
+validation -> checking for tags
+
+we 4 stages
+1. Pristine validation
+2. Dirty validation
+3. Touch validation
+4. untouch validation

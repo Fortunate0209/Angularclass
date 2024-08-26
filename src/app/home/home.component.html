@@ -1,0 +1,102 @@
+<!-- <app-nav></app-nav> -->
+
+<div>
+    <p>{{username}}</p>
+    <!-- <p>{{num}}</p> -->
+  
+    <!-- // condtional rendering -->
+     @if(isAdmin){
+      <p>you are permitted!</p>
+     }
+     @else {
+      <p>you are not permitted!!</p>
+     }
+  <!-- 
+     <p *ngIf="isAdmin">you are permitted!</p>
+     <p>you are not permitted!!</p> -->
+  
+     <!-- loop rendering -->
+      @for(item of users; track item){
+        <p>{{$index+1}}</p>
+        <p> {{item}} </p>
+      }
+  
+      @for(student of students; track student.id){
+        <p>{{student.name}} </p>
+        <p>{{student.dept}} </p>
+      }
+  
+  
+      <!-- binding -->
+       <!-- one way binding -->
+        <!-- <a [href]="link">click me</a> -->
+  
+        <!-- <input type="checkbox" name="terms" [value]="terms">
+        <label for="">i agree to the terms and conditions</label>
+        <button [disabled] = '!terms'>Click me</button> -->
+  
+        <!-- two ways binding -->
+        <input type="checkbox" name="terms" [(ngModel)]="terms">
+        <label for="">i agree to the terms and conditions</label>
+        <button [disabled] = '!terms'>Click me</button>
+  
+      <input type="text" class="form-control" [(ngModel)]="userInput">
+      <p>{{userInput}}</p>
+  
+  
+  
+      <!-- <div>
+        @for(item of items; track item.id){
+          <div class="card px-1 col-6 mx-auto" [id]="item.available ? 'available' : 'notAvailable'">
+            {{item.name}} | {{item.price}}
+            @if(!item.available){
+              <p>out of stock</p>
+            }
+          </div>
+        }
+      </div> -->
+  
+  
+      <!-- boostrap styling -->
+      <!-- <div>
+        @for(item of items; track item.id){
+          <div [class]="item.available ? 'bg-success text-red card px-1' : 'bg-warning text-dark card px-1'">
+            {{item.name}} | {{item.price}}
+            @if(!item.available){
+              <p>out of stock</p>
+            }
+          </div>
+        }
+      </div> -->
+  
+      <div>
+  
+  <div *ngFor="let item of items; trackBy: itemid">
+  
+    <div [ngClass]="{'available':item.available, 'unavailable': !item.available}" (click)="toggleBtn(item)"   >
+      {{item.name}} | {{item.price}}
+     
+    </div>
+  
+  </div>
+  
+  
+  <!-- 
+        @for(item of items; track item.id){
+          <div (click)="toggleBtn(item)" [class]="item.available ? 'bg-success text-red card px-1' : 'bg-warning text-dark card px-1'">
+            {{item.name}} | {{item.price}}
+            @if(!item.available){
+            }
+          </div>
+        } -->
+      </div>
+  
+  
+      <!-- function -->
+       <button class="btn btn-md bg-dark text-white" (click)="myFunction()">Click me</button>
+       
+      </div>
+      <button class="btn btn-md bg-dark text-white" (click)="signUp()">Sign Up</button>
+
+      <app-footer></app-footer>
+  

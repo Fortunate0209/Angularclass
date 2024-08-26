@@ -1,0 +1,16 @@
+<p>behaviourchildone works!</p>
+
+
+<div>
+<div class="shadow">
+    <div *ngFor="let contact of contactarray" class="shadow border p-2 " (click)="updatecontact(contact)" style="cursor: pointer;">
+        <p>Name: {{contact.name}}</p>
+        <p>Phone Number{{contact.phonenumber}}</p>
+        <p>Email: {{contact.email}}</p>
+        <p>Address: {{contact.address}}</p>
+    </div>
+
+</div>
+
+</div>
+

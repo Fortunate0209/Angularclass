@@ -1,0 +1,18 @@
+<p>user works!</p>
+
+<div class="col-6 mx-auto" *ngFor="let user of userarray, let i=index">
+    <p>{{user}}</p>
+</div>
+
+<div class="col-6 mx-auto" *ngFor="let user of userarraytwo, let i=index">
+    <p>{{i+1}}</p>
+    <p>Firstname: {{user.fname}}</p>
+    <p>Lastname: {{user.lname}}</p>
+    <p>Age: {{user.age}}</p>
+</div>
+
+<div>{{this.msg}}</div>
+
+<!-- <div class="col-6 mx-auto " *ngFor="let user of userarray">
+    <p>{{msg}}</p>
+</div> -->
